@@ -15,6 +15,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { imagesAndIcons } from "../../resuables/imagesAndIcons";
 // import { mockDataDetails } from "../ItemDetails/mockData";
 import { mockDataDetails } from "../itemDetails/mockData";
+import CustomButton from "../../components/buttons";
+import { colors } from "../../resuables/colors";
 
 const CartScreen = ({ navigation }: any) => {
   const [shippingMethod, setShippingMethod] = useState("Home delivery");
@@ -186,9 +188,13 @@ const CartScreen = ({ navigation }: any) => {
       </View>
       <View style={styles.separator} />
       {/* Purchase Button */}
-      <TouchableOpacity style={styles.purchaseButton}>
-        <Text style={styles.purchaseButtonText}>Finalize Purchase</Text>
-      </TouchableOpacity>
+      <CustomButton
+        title="Finalize Purchase"
+        onPress={() => console.log("Purchase button pressed")}
+        backgroundColor={colors.darkOrange}
+        textColor={colors.white}
+        style={{ marginTop: 16 }}
+      />
     </ScrollView>
   );
 };

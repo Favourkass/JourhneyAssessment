@@ -11,6 +11,8 @@ import { imagesAndIcons } from "../../resuables/imagesAndIcons";
 import { styles } from "./styles";
 import { mockDataDetails, mockImageData } from "./mockData";
 import { ROUTES } from "../../constants/routes";
+import CustomButton from "../../components/buttons";
+import { colors } from "../../resuables/colors";
 
 const ItemDetailsScreen = ({navigation}:any) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -111,14 +113,24 @@ const ItemDetailsScreen = ({navigation}:any) => {
 
       {/* CTA Buttons */}
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.cartButton}>
-          <Text style={styles.cartButtonText}>Add to Cart</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buyButton} onPress={()=>{
-            navigation.navigate(ROUTES.CART);
-        }}>
-          <Text style={styles.buyButtonText}>Buy Now</Text>
-        </TouchableOpacity>
+      <CustomButton
+        title="Add to Cart"
+        onPress={() => {
+          navigation.navigate(ROUTES.CART);
+        }}
+        backgroundColor={colors.black}
+        textColor={colors.white}
+        style={{ marginTop: 5 }}
+      />
+        <CustomButton
+        title="Buy Now"
+        onPress={() => {
+          navigation.navigate(ROUTES.CART);
+        }}
+        backgroundColor={colors.darkOrange}
+        textColor={colors.white}
+        style={{ marginTop: 5 }}
+      />
       </View>
     </ScrollView>
   );
